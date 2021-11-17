@@ -9,8 +9,6 @@ package main
 
 import (
 	"fmt"
-	"time"
-	"strconv"
 	"twiny/core"
 	"twiny/spider"
 )
@@ -42,7 +40,7 @@ func main() {
 
 		}, func(resp *core.Response) interface{} {
 			fmt.Println("DlMiddleware2 ProcessResponse")
-			return true
+			return nil
 		}).
 		ParserFunc(func(resp *core.Response) []*core.Request {
 			fmt.Println(resp.Request.URL.Path, ", response status:", resp.Status)
