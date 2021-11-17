@@ -2,12 +2,18 @@ package main
 
 import (
 	"fmt"
+	"time"
+	"strconv"
 	"twiny/core"
 	"twiny/spider"
 )
 
 func main() {
 
+}
+
+
+func demo() {
 	spider.NewSpider("BaiduSpider", []*core.Request{core.Get("https://studygolang.com/articles/8865"),}).
 		AddDlMiddlewareFunc(func(req *core.Request) interface{} {
 			fmt.Println("DlMiddleware1 ProcessRequest")
@@ -41,9 +47,7 @@ func main() {
 			return nil
 		}).
 		Crawl()
-	
 }
-
 
 type baiduParser struct {
 }

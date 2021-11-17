@@ -7,7 +7,7 @@ import (
 type HttpResponse = http.Response
 
 type Response struct {
-	HttpResponse
+	*HttpResponse
 	Body []byte    // 覆盖http.Response的Body
 	Error error
 

@@ -17,7 +17,7 @@ type SimpleDownloader struct {
 
 func (self *SimpleDownloader) Download(req *core.Request) *core.Response {
 	fmt.Println("SimpleDownloader call")
-	resp, err := self.client.Do(&(req.HttpRequest))
+	resp, err := self.client.Do(req.HttpRequest)
 
 	var bodyBytes []byte
 	if err == nil {
@@ -27,7 +27,7 @@ func (self *SimpleDownloader) Download(req *core.Request) *core.Response {
 	}
 
 	return &core.Response {
-		HttpResponse: *resp,
+		HttpResponse: resp,
 		Body		: bodyBytes,
 		Error		: err,
 		Request		: req,

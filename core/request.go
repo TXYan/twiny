@@ -8,7 +8,7 @@ import (
 type HttpRequest = http.Request
 
 type Request struct {
-	HttpRequest
+	*HttpRequest
 	RetryTimes		int
 }
 
@@ -20,7 +20,7 @@ func Get(url string) *Request {
 	}
 
 	return &Request {
-		HttpRequest	: *req,
+		HttpRequest	: req,
 	}
 }
 
@@ -40,6 +40,6 @@ func Post(url string, body []byte) *Request {
 	}
 
 	return &Request {
-		HttpRequest		: *req,
+		HttpRequest		: req,
 	}
 }

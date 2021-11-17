@@ -19,8 +19,6 @@ type Spider struct {
 
 	// 下载线程数
 	dlThreadNum	int 
-	// 下载时间间隔
-	dlDuration	time.Duration
 	// 解析线程数
 	parseThreadNum		int 
 	// 解析通道
