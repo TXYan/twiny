@@ -9,11 +9,11 @@ import (
 )
 
 func main() {
-
+	demoFunc()
 }
 
 
-func demo() {
+func demoFunc() {
 	spider.NewSpider("BaiduSpider", []*core.Request{core.Get("https://studygolang.com/articles/8865"),}).
 		AddDlMiddlewareFunc(func(req *core.Request) interface{} {
 			fmt.Println("DlMiddleware1 ProcessRequest")
@@ -47,28 +47,5 @@ func demo() {
 			return nil
 		}).
 		Crawl()
-}
-
-type baiduParser struct {
-}
-
-
-func (self *baiduParser) Parse(resp *core.Response) []*core.Request {
-	fmt.Println(resp.Request.URL.Path, ", response status:", resp.Status)
-	return nil
-}
-
-
-
-type baiduHeaderMiddleware struct {
-}
-
-func (self *baiduHeaderMiddleware) ProcessRequest(req *core.Request) {
-	fmt.Println("baiduHeaderMiddleware ProcessRequest call")
-	req.Header.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36")
-}
-
-func (self *baiduHeaderMiddleware) ProcessResponse(resp *core.Response) {
-	fmt.Println("baiduHeaderMiddleware ProcessResponse call")
 }
 
