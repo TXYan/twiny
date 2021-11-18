@@ -18,19 +18,19 @@ func main() {
 		AddDlMiddlewareFunc(func(req *core.Request) interface{} {
 			fmt.Println("DlMiddleware1 ProcessRequest")
 			req.Header.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36")
-			return false
+			return nil
 		}, func(resp *core.Response) interface{} {
 			fmt.Println("DlMiddleware1 ProcessResponse")
-			return true
+			return nil
 		}).
 		AddDlMiddlewareFunc(func(req *core.Request) interface{} {
 			fmt.Println("DlMiddleware2 ProcessRequest")
-			
+			// 进行重试
 			if req.RetryTimes == 0 {
 				req.RetryTimes++
 				return req
 			}
-
+			// 模拟返回 不会再使用downloader发起请求
 			resp := &core.Response{}
 			resp.Status = "200 OK"
 			resp.Request = req
