@@ -13,3 +13,9 @@ type Response struct {
 
 	Request *Request
 }
+
+func NewResponse() *Response {
+	return &Response {
+		HttpResponse	: &HttpResponse{},
+	}
+}

@@ -3,18 +3,13 @@ package main
 import (
 	"fmt"
 	"time"
-	"strconv"
 	"twiny/core"
 	"twiny/spider"
 )
 
+
 func main() {
-	demoFunc()
-}
-
-
-func demoFunc() {
-	spider.NewSpider("BaiduSpider", []*core.Request{core.Get("https://studygolang.com/articles/8865"),}).
+	spider.NewSpider("StudySpider", []*core.Request{core.Get("https://studygolang.com/articles/8865"),}).
 		AddDlMiddlewareFunc(func(req *core.Request) interface{} {
 			fmt.Println("DlMiddleware1 ProcessRequest")
 			req.Header.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36")
@@ -31,7 +26,7 @@ func demoFunc() {
 				return req
 			}
 
-			resp := &core.Response{}
+			resp := core.NewResponse()
 			resp.Status = "200 OK"
 			resp.Request = req
 			resp.Body = []byte("mock response")
@@ -46,6 +41,7 @@ func demoFunc() {
 			fmt.Println(resp.Request.URL.Path, ", response status:", resp.Status)
 			return nil
 		}).
+		DefaultDlDuration(1 * time.Second).
 		Crawl()
 }
 

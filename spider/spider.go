@@ -21,6 +21,8 @@ type Spider struct {
 	dlThreadNum	int 
 	// 解析线程数
 	parseThreadNum		int 
+	// 默认下载时间间隔
+	defaultDlDuration	time.Duration
 	// 解析通道
 	parseChan			chan *core.Response
 
@@ -56,8 +58,11 @@ func (self *Spider) Crawl() {
 	}
 
 	// 检查scheduler 和 downloader
+	if self.defaultDlDuration <= 0 {
+		self.defaultDlDuration = 2 * time.Second
+	}
 	if self.scheduler == nil {
-		self.scheduler = scheduler.NewSimpleScheduler(128, 2 * time.Second)
+		self.scheduler = scheduler.NewSimpleScheduler(128, self.defaultDlDuration)
 	}
 	if self.downloader == nil {
 		self.downloader = downloader.NewSimpleDownloader(nil)
@@ -113,6 +118,11 @@ func (self *Spider) DlThreadNum(num int) *Spider {
  */
 func (self *Spider) ParseThreadNum(num int) *Spider {
 	self.parseThreadNum = num
+	return self
+}
+
+func (self *Spider) DefaultDlDuration(duration time.Duration) *Spider {
+	self.defaultDlDuration = duration
 	return self
 }
 
