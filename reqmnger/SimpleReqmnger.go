@@ -1,7 +1,7 @@
 package reqmnger
 
 import (
-	"twiny/core"
+	"github.com/TXYan/twiny/core"
 )
 
 type SimpleReqMnger struct {

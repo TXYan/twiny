@@ -4,10 +4,10 @@ package config
 import (
 	"time"
 	"net/http"
-	"twiny/core"
-	"twiny/parser"
-	"twiny/reqmnger"
-	"twiny/middleware"
+	"github.com/TXYan/twiny/core"
+	"github.com/TXYan/twiny/parser"
+	"github.com/TXYan/twiny/reqmnger"
+	"github.com/TXYan/twiny/middleware"
 )
 
 type SchedulerConfig struct {
@@ -62,9 +62,8 @@ func (self *SchedulerConfig) GetReqManager() reqmnger.Ireqmnger {
 	return self.reqmanager
 }
 
-func (self *SchedulerConfig) StartReqs(reqs []*core.Request) *SchedulerConfig {
+func (self *SchedulerConfig) StartReqs(reqs []*core.Request) {
 	self.startReqs = reqs
-	return self
 }
 
 func (self *SchedulerConfig) GetStartReqs() []*core.Request {

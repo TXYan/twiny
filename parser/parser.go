@@ -1,9 +1,12 @@
 package parser
 
 import (
-	"twiny/core"
+	"github.com/TXYan/twiny/core"
 )
 
+/**
+ * 解析器接口
+ */
 type IParser interface {
 	Parse(resp *core.Response) []*core.Request
 }

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 	"testing"
-	"twiny/core"
+	"github.com/TXYan/twiny/core"
 )
 
 func TestSpider(t *testing.T) {

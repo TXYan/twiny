@@ -3,9 +3,9 @@ package downloader
 import (
 	"io/ioutil"
 	"net/http"
-	"twiny/core"
-	"twiny/config"
-	"twiny/middleware"
+	"github.com/TXYan/twiny/core"
+	"github.com/TXYan/twiny/config"
+	"github.com/TXYan/twiny/middleware"
 )
 
 /**

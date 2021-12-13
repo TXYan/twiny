@@ -2,10 +2,10 @@ package scheduler
 
 import (
 	"time"
-	"twiny/core"
-	"twiny/reqmnger"
-	"twiny/downloader"
-	"twiny/config"
+	"github.com/TXYan/twiny/core"
+	"github.com/TXYan/twiny/reqmnger"
+	"github.com/TXYan/twiny/downloader"
+	"github.com/TXYan/twiny/config"
 )
 
 type Scheduler struct {

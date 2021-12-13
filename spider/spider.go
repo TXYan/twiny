@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"time"
 	"runtime"
-	"twiny/core"
-	"twiny/config"
-	"twiny/parser"
-	"twiny/scheduler"
-	"twiny/middleware"
-	"twiny/reqmnger"
-	"twiny/downloader"
+	"github.com/TXYan/twiny/core"
+	"github.com/TXYan/twiny/config"
+	"github.com/TXYan/twiny/parser"
+	"github.com/TXYan/twiny/scheduler"
+	"github.com/TXYan/twiny/middleware"
+	"github.com/TXYan/twiny/reqmnger"
+	"github.com/TXYan/twiny/downloader"
 )
 
 type SchedulerConfig = config.SchedulerConfig

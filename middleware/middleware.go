@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"twiny/core"
+	"github.com/TXYan/twiny/core"
 )
 
 // downloaderMiddleware 返回值 暂且借鉴scrapy的用法
