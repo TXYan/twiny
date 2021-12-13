@@ -36,9 +36,7 @@ spider.NewSpider("CsdnSpider").
 			return nil
 		}).
 		ParserFunc(func(resp *core.Response) []*core.Request {
-			// fmt.Println(resp.Request.URL.Path, ", html:", string(resp.Body))
-			t.Log("path:", resp.Request.URL.Path, ", response status:", resp.Status)
-			sp.Close()
+			fmt.Println(resp.Request.URL.Path, ", html:", string(resp.Body))
 			return nil
 		}).
 		DlDuration(5 * time.Second).
